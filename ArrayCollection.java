@@ -8,9 +8,9 @@
 // Two constructors are provided: one that creates a collection of a default
 // capacity, and one that allows the calling program to specify the capacity.
 //---------------------------------------------------------------------------
-package ch05.collections;
 
-public class ArrayCollection<T> implements CollectionInterface<T>  
+
+public class ArrayCollection<T>  
 {
   protected final int DEFCAP = 100; // default capacity
   protected T[] elements;           // array to hold collection�s elements
