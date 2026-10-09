@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Animals {
@@ -39,8 +40,19 @@ public class Animals {
                 System.out.println(
                     "Enter an animal starting with the letter " + start
                 );
-
-                String animal = input.nextLine();
+                
+                String animal = input.nextLine().trim();
+                animal = animal.substring(0, 1).toUpperCase() + animal.substring(1).toLowerCase();
+                try {
+                    //line 46 created with AI
+                    if (!animal.matches("[A-Za-z][A-Za-z '-]*")) {
+                        throw new InputMismatchException("Enter an animal name using letters only.");
+                    }
+                }
+                catch (InputMismatchException exception) {
+                    System.out.println(exception.getMessage());
+                    continue;
+                }
 
                 if (newList.contains(animal) && animal.charAt(0) == start) {
                     count++;
